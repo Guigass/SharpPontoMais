@@ -24,13 +24,13 @@ namespace PontoMais.API.GlobalServices
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<ApiResponse<T>> Post<T>(string action, string jsonString) where T : class
+        public async Task<ApiResponse<T>> Post<T>(string action, object objeto) where T : class
         {
             var apiResponse = new ApiResponse<T>();
             try
             {
                 var mediaType = "application/json";
-                var jsonContent = new StringContent(jsonString, Encoding.UTF8, mediaType);
+                var jsonContent = new StringContent(JsonConvert.SerializeObject(objeto), Encoding.UTF8, mediaType);
 
                 if (!client.DefaultRequestHeaders.Contains("access-token"))
                     client.DefaultRequestHeaders.Add("access-token", _apiToken);
@@ -52,14 +52,14 @@ namespace PontoMais.API.GlobalServices
             return apiResponse;
         }
 
-        public async Task<ApiResponse<T>> Put<T>(string action, string jsonString) where T : class
+        public async Task<ApiResponse<T>> Put<T>(string action, object objeto) where T : class
         {
             var apiResponse = new ApiResponse<T>();
 
             try
             {
                 var mediaType = "application/json";
-                var jsonContent = new StringContent(jsonString, Encoding.UTF8, mediaType);
+                var jsonContent = new StringContent(JsonConvert.SerializeObject(objeto), Encoding.UTF8, mediaType);
 
                 if (!client.DefaultRequestHeaders.Contains("access-token"))
                     client.DefaultRequestHeaders.Add("access-token", _apiToken);
@@ -91,42 +91,6 @@ namespace PontoMais.API.GlobalServices
                     client.DefaultRequestHeaders.Add("access-token", _apiToken);
 
                 var result = await client.GetAsync($"{_apiUrl}/{action}?{query}");
-
-                apiResponse.Status = result.StatusCode.ToString();
-                apiResponse.IsSuccess = result.IsSuccessStatusCode;
-
-                var jsonResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
-
-                apiResponse.Message = jsonResult;
-
-                try { apiResponse.Object = JsonConvert.DeserializeObject<T>(jsonResult); }
-                catch (Exception ex) { apiResponse.Exception = ex; }
-            }
-            catch (Exception ex) { apiResponse.Exception = ex; }
-
-            return apiResponse;
-        }
-
-        public async Task<ApiResponse<T>> Get<T>(string action, object parametros) where T : class
-        {
-            var apiResponse = new ApiResponse<T>();
-
-            try
-            {
-                if (!client.DefaultRequestHeaders.Contains("access-token"))
-                    client.DefaultRequestHeaders.Add("access-token", _apiToken);
-
-                var mediaType = "application/json";
-                var jsonContent = new StringContent(JsonConvert.SerializeObject(parametros), Encoding.UTF8, mediaType);
-
-                var httpRequest = new HttpRequestMessage
-                {
-                    RequestUri = new Uri($"{_apiUrl}/{action}"),
-                    Content = jsonContent,
-                    Method = HttpMethod.Get
-                };
-
-                var result = await client.SendAsync(httpRequest);
 
                 apiResponse.Status = result.StatusCode.ToString();
                 apiResponse.IsSuccess = result.IsSuccessStatusCode;
