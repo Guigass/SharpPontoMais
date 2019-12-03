@@ -75,9 +75,16 @@ namespace PontoMais.API
 
         #region Relatorios
 
-        public async Task<ApiResponse<object>> GetJornada(JornadaToGet jornada)
+        public async Task<ApiResponse<Reports>> GetJornadas(ReportsToGet jornada)
         {
-            var response = await _restService.Post<object>($"reports/work_days", jornada);
+            var response = await _restService.Post<Reports>($"reports/work_days", jornada);
+
+            return response;
+        }
+
+        public async Task<ApiResponse<Reports>> GetRegistrosPontos(ReportsToGet registros)
+        {
+            var response = await _restService.Post<Reports>($"reports/time_cards", registros);
 
             return response;
         }
