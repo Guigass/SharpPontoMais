@@ -37,3 +37,5 @@ Alguns dos metodos já estão implementados porem ainda sem testes, para usar é
 Todos os metodos estão dentro de PontoMais.API.ServicesPontoMais e os Modelos estão em PontoMais.API.Models.
 
 Espero estar ajudando.
+
+Caso precise de algum metodo que nao esteja implementado criar um pull request ou mande um email.
