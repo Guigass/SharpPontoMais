@@ -10,7 +10,7 @@ namespace PontoMais.API.Models
     {
         public Heading heading { get; set; }
         public List<List<ReportsDatum>> data { get; set; }
-        public Meta meta { get; set; }
+        public MetaData meta { get; set; }
     }
 
     public partial class ReportsDatum
@@ -24,8 +24,7 @@ namespace PontoMais.API.Models
     public partial class DatumDatum
     {
         public string employee_name { get; set; }
-        [JsonConverter(typeof(JsonDateTimeConverter))]
-        public DateTime date { get; set; }
+        public string date { get; set; }
         public string time { get; set; }
         public string pis { get; set; }
         public double? registration_number { get; set; }
@@ -37,8 +36,7 @@ namespace PontoMais.API.Models
         public string edited_address { get; set; }
         public string manually_changed { get; set; }
         public string motive { get; set; }
-        [JsonConverter(typeof(JsonDateTimeConverter))]
-        public DateTime updated_by { get; set; }
+        public string updated_by { get; set; }
         public string image { get; set; }
         public string ip { get; set; }
         public string time_card_index { get; set; }
@@ -64,17 +62,8 @@ namespace PontoMais.API.Models
     {
         public string title { get; set; }
         public string created_by_name { get; set; }
-        [JsonConverter(typeof(JsonDateTimeConverter))]
-        public DateTime start_date { get; set; }
-        [JsonConverter(typeof(JsonDateTimeConverter))]
-        public DateTime end_date { get; set; }
-        [JsonConverter(typeof(JsonDateTimeConverter))]
-        public DateTime today { get; set; }
-    }
-
-    public partial class Meta
-    {
-        public long now { get; set; }
-        public string ip { get; set; }
+        public string start_date { get; set; }
+        public string end_date { get; set; }
+        public string today { get; set; }
     }
 }

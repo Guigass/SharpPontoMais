@@ -23,6 +23,61 @@ namespace PontoMais.API
             _restService.Dispose();
         }
 
+        #region Unidades de Negocio
+
+        public async Task<ApiResponse<BusinessUnits>> GetUnidades(int page = 1, int itemsPerPage = 10)
+        {
+            var response = await _restService.Post<BusinessUnits>($"business_units?page={page}&per_page={itemsPerPage}", null);
+
+            return response;
+        }
+
+        #endregion
+
+        #region Departamentos
+
+        public async Task<ApiResponse<Departments>> GetDepartamentos(int page = 1, int itemsPerPage = 10)
+        {
+            var response = await _restService.Post<Departments>($"departments?&count=true&page={page}&per_page={itemsPerPage}", null);
+
+            return response;
+        }
+
+        #endregion
+
+        #region Equipes
+
+        public async Task<ApiResponse<Teams>> GetEquipes(int page = 1, int itemsPerPage = 10)
+        {
+            var response = await _restService.Post<Teams>($"teams?&count=true&page={page}&per_page={itemsPerPage}", null);
+
+            return response;
+        }
+
+        #endregion
+
+        #region Cargos
+
+        public async Task<ApiResponse<JobTitles>> GetCargos(int page = 1, int itemsPerPage = 10)
+        {
+            var response = await _restService.Post<JobTitles>($"job_titles?&count=true&page={page}&per_page={itemsPerPage}", null);
+
+            return response;
+        }
+
+        #endregion
+
+        #region Turnos
+
+        public async Task<ApiResponse<Shifts>> GetTurnos(int page = 1, int itemsPerPage = 10)
+        {
+            var response = await _restService.Post<Shifts>($"shifts?&count=true&page={page}&per_page={itemsPerPage}", null);
+
+            return response;
+        }
+
+        #endregion
+
         #region Colaboradores
 
         public async Task<ApiResponse<object>> CriaColaborador(ColaboradorToSet colaborador)
