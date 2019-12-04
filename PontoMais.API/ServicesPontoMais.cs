@@ -82,28 +82,28 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<PontoMaisResponse>> CriaColaborador(ColaboradorToSet colaborador)
         {
-            var response = await _restService.Post<object>("employees", colaborador);
+            var response = await _restService.Post<PontoMaisResponse>("employees", colaborador);
 
             return response;
         }
 
         public async Task<ApiResponse<PontoMaisResponse>> AtualizaColaborador(ColaboradorToSet colaborador, int employee_id)
         {
-            var response = await _restService.Put<object>($"employees/{employee_id}", colaborador);
+            var response = await _restService.Put<PontoMaisResponse>($"employees/{employee_id}", colaborador);
 
             return response;
         }
 
         public async Task<ApiResponse<PontoMaisResponse>> DemitirColaborador(int employee_id)
         {
-            var response = await _restService.Put<object>($"employees/{employee_id}/dismiss", null);
+            var response = await _restService.Put<PontoMaisResponse>($"employees/{employee_id}/dismiss", null);
 
             return response;
         }
 
         public async Task<ApiResponse<PontoMaisResponse>> VerificaStatusColaborador(int employee_id)
         {
-            var response = await _restService.Get<object>($"employees/{employee_id}/status");
+            var response = await _restService.Get<PontoMaisResponse>($"employees/{employee_id}/status");
 
             return response;
         }
@@ -114,7 +114,7 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<PontoMaisResponse>> CriaFerias(FeriasToSet ferias, int employee_id)
         {
-            var response = await _restService.Post<object>($"employees/{employee_id}/absences", ferias);
+            var response = await _restService.Post<PontoMaisResponse>($"employees/{employee_id}/absences", ferias);
 
             return response;
         }
