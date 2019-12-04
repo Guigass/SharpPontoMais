@@ -30,7 +30,7 @@ Alguns dos metodos já estão implementados porem ainda sem testes, para usar é
                         time_card_source = (TimeCardSource)time_card_source
                     };
 
-                    pontoMais.AtualizaColaborador(colaborador, usuario.USUA_PONTOMAIS_ID.Value);
+                    var resp = await pontoMais.CriaColaborador(colaborador);
                 }
             
             
