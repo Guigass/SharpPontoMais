@@ -8,9 +8,9 @@
     <PackageProjectUrl>https://github.com/Guigass/SharpPontoMais</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Guigass/SharpPontoMais</RepositoryUrl>
     <PackageTags>pontomais, pontoonline</PackageTags>
-    <AssemblyVersion>1.0.3.2</AssemblyVersion>
-    <FileVersion>1.0.3.2</FileVersion>
-    <Version>1.0.3.2</Version>
+    <AssemblyVersion>1.0.4.0</AssemblyVersion>
+    <FileVersion>1.0.4.0</FileVersion>
+    <Version>1.0.4.0</Version>
     <PackageReleaseNotes>API do PontoMais em .net standard</PackageReleaseNotes>
     <Description>API do PontoMais em .net standard</Description>
   </PropertyGroup>
