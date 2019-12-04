@@ -27,7 +27,7 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<BusinessUnits>> GetUnidades(int page = 1, int itemsPerPage = 10)
         {
-            var response = await _restService.Post<BusinessUnits>($"business_units?page={page}&per_page={itemsPerPage}", null);
+            var response = await _restService.Get<BusinessUnits>($"business_units?page={page}&per_page={itemsPerPage}", null);
 
             return response;
         }
@@ -38,7 +38,7 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<Departments>> GetDepartamentos(int page = 1, int itemsPerPage = 10)
         {
-            var response = await _restService.Post<Departments>($"departments?&count=true&page={page}&per_page={itemsPerPage}", null);
+            var response = await _restService.Get<Departments>($"departments?count=true&page={page}&per_page={itemsPerPage}", null);
 
             return response;
         }
@@ -49,7 +49,7 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<Teams>> GetEquipes(int page = 1, int itemsPerPage = 10)
         {
-            var response = await _restService.Post<Teams>($"teams?&count=true&page={page}&per_page={itemsPerPage}", null);
+            var response = await _restService.Get<Teams>($"teams?&count=true&page={page}&per_page={itemsPerPage}", null);
 
             return response;
         }
@@ -60,7 +60,7 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<JobTitles>> GetCargos(int page = 1, int itemsPerPage = 10)
         {
-            var response = await _restService.Post<JobTitles>($"job_titles?&count=true&page={page}&per_page={itemsPerPage}", null);
+            var response = await _restService.Get<JobTitles>($"job_titles?&count=true&page={page}&per_page={itemsPerPage}", null);
 
             return response;
         }
@@ -71,7 +71,7 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<Shifts>> GetTurnos(int page = 1, int itemsPerPage = 10)
         {
-            var response = await _restService.Post<Shifts>($"shifts?&count=true&page={page}&per_page={itemsPerPage}", null);
+            var response = await _restService.Get<Shifts>($"shifts?&count=true&page={page}&per_page={itemsPerPage}", null);
 
             return response;
         }
@@ -82,7 +82,7 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<Employee>> GetColaborador(int id)
         {
-            var response = await _restService.Post<Employee>($"employees/{id}", null);
+            var response = await _restService.Get<Employee>($"employees/{id}", null);
 
             return response;
         }
