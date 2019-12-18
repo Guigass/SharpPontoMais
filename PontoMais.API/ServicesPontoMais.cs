@@ -89,14 +89,14 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<PontoMaisResponse>> CriaColaborador(ColaboradorToSet colaborador)
         {
-            var response = await _restService.Post<PontoMaisResponse>("employees", colaborador);
+            var response = await _restService.Post<PontoMaisResponse>("employees", new { employee = colaborador });
 
             return response;
         }
 
         public async Task<ApiResponse<PontoMaisResponse>> AtualizaColaborador(ColaboradorToSet colaborador, int employee_id)
         {
-            var response = await _restService.Put<PontoMaisResponse>($"employees/{employee_id}", colaborador);
+            var response = await _restService.Put<PontoMaisResponse>($"employees/{employee_id}", new { employee = colaborador });
 
             return response;
         }
