@@ -103,7 +103,17 @@ namespace PontoMais.API
 
         public async Task<ApiResponse<PontoMaisResponse>> DemitirColaborador(int employee_id)
         {
-            var response = await _restService.Put<PontoMaisResponse>($"employees/{employee_id}/dismiss", null);
+            var obj = new
+            {
+                employee = new
+                {
+                    date = DateTime.Now.ToString("yyyy-MM-dd"),
+                    effective_date = DateTime.Now.ToString("yyyy-MM-dd"),
+                    motive = 2
+                }
+            };
+
+            var response = await _restService.Put<PontoMaisResponse>($"employees/{employee_id}/dismiss", obj);
 
             return response;
         }
