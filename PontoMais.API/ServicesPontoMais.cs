@@ -67,6 +67,17 @@ namespace PontoMais.API
 
         #endregion
 
+        #region Centros de Custos
+
+        public async Task<ApiResponse<JobTitles>> GetCentrosCustos(int page = 1, int itemsPerPage = 10)
+        {
+            var response = await _restService.Get<JobTitles>($"cost_centers?&count=true&page={page}&per_page={itemsPerPage}", null);
+
+            return response;
+        }
+
+        #endregion
+
         #region Turnos
 
         public async Task<ApiResponse<Shifts>> GetTurnos(int page = 1, int itemsPerPage = 10)

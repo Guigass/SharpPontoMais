@@ -15,7 +15,7 @@ namespace PontoMais.API.Models
         public bool is_clt { get; set; }
         public string nis { get; set; }
         public int team_id { get; set; }
-        public int? cost_center_id { get; set; }
+        public int cost_center_id { get; set; }
         public int job_title_id { get; set; }
         public int shift_id { get; set; }
         public string email { get; set; }
