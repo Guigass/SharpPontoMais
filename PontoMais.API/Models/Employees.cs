@@ -269,6 +269,7 @@ namespace PontoMais.API.Models
         public object work_hours { get; set; }
         public object pin { get; set; }
         public bool use_qrcode { get; set; }
+        public string qrcode { get; set; }
         public bool use_face_detection { get; set; }
         public int time_offset { get; set; }
         public bool daylight_saving_time { get; set; }
