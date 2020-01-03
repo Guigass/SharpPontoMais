@@ -91,9 +91,9 @@ namespace PontoMais.API
 
         #region Colaboradores
 
-        public async Task<ApiResponse<Employee>> GetColaborador(int id)
+        public async Task<ApiResponse<Employees>> GetColaborador(int id)
         {
-            var response = await _restService.Get<Employee>($"employees/{id}", null);
+            var response = await _restService.Get<Employees>($"employees/{id}", null);
 
             return response;
         }
