@@ -17,13 +17,6 @@ namespace PontoMais.API.Models
         public string name { get; set; }
     }
 
-    public class BusinessUnit
-    {
-        public int id { get; set; }
-        public string code { get; set; }
-        public string name { get; set; }
-    }
-
     public class Group
     {
         public int id { get; set; }
@@ -53,12 +46,6 @@ namespace PontoMais.API.Models
     }
 
     public class EnableOfflineTimeCards
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-    }
-
-    public class ClientPreference
     {
         public int id { get; set; }
         public string name { get; set; }
