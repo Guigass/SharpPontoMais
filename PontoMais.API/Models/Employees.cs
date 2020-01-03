@@ -4,12 +4,6 @@ using System.Text;
 
 namespace PontoMais.API.Models
 {
-    public class Employees
-    {
-        public Employee employee { get; set; }
-        public MetaData meta { get; set; }
-    }
-
     public class Picture
     {
         public string url { get; set; }
@@ -20,6 +14,50 @@ namespace PontoMais.API.Models
     public class TimeCardSource
     {
         public int id { get; set; }
+        public string name { get; set; }
+    }
+
+    public class CoverPicture
+    {
+        public string url { get; set; }
+        public string small_url { get; set; }
+    }
+
+    public class Team
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public List<int> leader_ids { get; set; }
+        public CoverPicture cover_picture { get; set; }
+    }
+
+    public class BusinessUnit
+    {
+        public int id { get; set; }
+        public string code { get; set; }
+        public string name { get; set; }
+    }
+
+    public class Shift
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public bool advanced { get; set; }
+        public bool flexible { get; set; }
+        public bool without_holidays { get; set; }
+        public object advanced_preference { get; set; }
+    }
+
+    public class JobTitle
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+    }
+
+    public class CostCenter
+    {
+        public int id { get; set; }
+        public string code { get; set; }
         public string name { get; set; }
     }
 
@@ -45,12 +83,6 @@ namespace PontoMais.API.Models
         public string name { get; set; }
     }
 
-    public class WorkStatusTimeCard
-    {
-        public string date { get; set; }
-        public string time { get; set; }
-    }
-
     public class EnableGeolocation
     {
         public int id { get; set; }
@@ -58,6 +90,12 @@ namespace PontoMais.API.Models
     }
 
     public class EnableOfflineTimeCards
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+    }
+
+    public class ClientPreference
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -79,16 +117,23 @@ namespace PontoMais.API.Models
         public bool compensatory { get; set; }
     }
 
+    public class Factors
+    {
+    }
+
     public class CompensatoryTimeOff
     {
         public bool enabled { get; set; }
         public bool allowance { get; set; }
+        public string start_date { get; set; }
         public double multiply_factor_50_percent { get; set; }
         public double multiply_factor_100_percent { get; set; }
         public int expiration { get; set; }
         public bool middle_phases_extra_time { get; set; }
         public bool ignore_missing_days_from_time_balance { get; set; }
+        public string limit { get; set; }
         public bool cumulative_time_balance { get; set; }
+        public Factors factors { get; set; }
     }
 
     public class CustomExtraTime
@@ -138,6 +183,7 @@ namespace PontoMais.API.Models
         public bool dsr_enabled { get; set; }
         public bool time_card_local_time_enabled { get; set; }
         public bool can_team_leader_edit_own_work_day { get; set; }
+        public bool team_leader_can_edit_own_subordinates_only { get; set; }
         public bool apply_strong_password_policy { get; set; }
         public int timezone { get; set; }
         public FlexibleInterval flexible_interval { get; set; }
@@ -225,6 +271,7 @@ namespace PontoMais.API.Models
         public object main_phone_number { get; set; }
         public Picture picture { get; set; }
         public bool is_clt { get; set; }
+        public string qrcode { get; set; }
         public bool is_retired { get; set; }
         public bool has_time_cards { get; set; }
         public TimeCardSource time_card_source { get; set; }
@@ -262,14 +309,13 @@ namespace PontoMais.API.Models
         public object address { get; set; }
         public object foreign_address { get; set; }
         public WorkStatus work_status { get; set; }
-        public WorkStatusTimeCard work_status_time_card { get; set; }
+        public object work_status_time_card { get; set; }
         public double time_balance { get; set; }
         public List<object> employee_closings { get; set; }
         public string admission_date { get; set; }
         public object work_hours { get; set; }
-        public object pin { get; set; }
+        public string pin { get; set; }
         public bool use_qrcode { get; set; }
-        public string qrcode { get; set; }
         public bool use_face_detection { get; set; }
         public int time_offset { get; set; }
         public bool daylight_saving_time { get; set; }
@@ -287,5 +333,11 @@ namespace PontoMais.API.Models
         public bool active { get; set; }
         public string initial_date { get; set; }
         public bool is_team_leader { get; set; }
+    }
+
+    public class Employees
+    {
+        public Employee employee { get; set; }
+        public MetaData meta { get; set; }
     }
 }
