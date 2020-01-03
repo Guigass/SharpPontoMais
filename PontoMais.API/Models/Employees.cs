@@ -17,44 +17,7 @@ namespace PontoMais.API.Models
         public string name { get; set; }
     }
 
-    public class CoverPicture
-    {
-        public string url { get; set; }
-        public string small_url { get; set; }
-    }
-
-    public class Team
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-        public List<int> leader_ids { get; set; }
-        public CoverPicture cover_picture { get; set; }
-    }
-
     public class BusinessUnit
-    {
-        public int id { get; set; }
-        public string code { get; set; }
-        public string name { get; set; }
-    }
-
-    public class Shift
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-        public bool advanced { get; set; }
-        public bool flexible { get; set; }
-        public bool without_holidays { get; set; }
-        public object advanced_preference { get; set; }
-    }
-
-    public class JobTitle
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-    }
-
-    public class CostCenter
     {
         public int id { get; set; }
         public string code { get; set; }
