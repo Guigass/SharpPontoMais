@@ -20,11 +20,13 @@ namespace PontoMais.API.Models
         public int shift_id { get; set; }
         public string email { get; set; }
         public bool has_time_cards { get; set; }
-        public TimeCardSource time_card_source { get; set; }
+        public int time_card_source { get; set; }
         [JsonConverter(typeof(JsonDateTimeConverter))]
         public DateTime admission_date { get; set; }
         [JsonConverter(typeof(JsonDateTimeConverter))]
         public DateTime initial_date { get; set; }
         public string picture { get; set; }
+        public int group_id { get; set; }
+        public string password { get; set; }
     }
 }
