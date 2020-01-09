@@ -29,7 +29,7 @@ namespace PontoMais.API.Models
         public string email { get; set; }
         public bool active { get; set; }
         public bool admin { get; set; }
-        public DateTime confirmed_at { get; set; }
+        public DateTime? confirmed_at { get; set; }
         public Group group { get; set; }
     }
 
