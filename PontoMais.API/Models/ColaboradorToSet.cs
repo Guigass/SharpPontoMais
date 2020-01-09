@@ -9,6 +9,11 @@ namespace PontoMais.API.Models
 {
     public class ColaboradorToSet
     {
+        public EmployeeToSet employee { get; set; }
+    }
+
+    public class EmployeeToSet
+    {
         public string registration_number { get; set; }
         public string name { get; set; }
         public string cpf { get; set; }
